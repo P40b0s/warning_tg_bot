@@ -61,9 +61,10 @@ async fn text_handler(bot: Bot, msg: Message, state: Arc<AppState>) -> ResponseR
                 {
                     if let Some(user) = msg.from.as_ref()
                     {
+                        let id = msg.chat_id().unwrap();
+                        id.0
                         let date = msg.date.clone().naive_local();
                         let d = Date::from(date);
-                        
                         let user = users::User::new(user.id.0, user.first_name.clone(), user.username.clone(), d);
                         let st = State::new(Some(user));
                         let mut guard = state.users_state.write().await;

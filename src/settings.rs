@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 use serde::{Deserialize, Serialize};
 
 
@@ -6,6 +8,12 @@ pub struct Settings
 {
     pub count: u8
 }
+#[derive(Serialize, Deserialize, Clone)]
+pub struct SettingsMap
+{
+    settings: HashMap<i64, Settings>
+}
+
 impl Default for Settings
 {
     fn default() -> Self 
@@ -33,5 +41,20 @@ impl Settings
     pub fn save(&self)
     {
         utilites::serialize(self, FILE_NAME, false, utilites::Serializer::Toml);
+    }
+}
+
+
+impl Default for SettingsMap
+{
+    fn default() -> Self 
+    {
+        let mut hm = HashMap::new();
+        let settings = Settings::default();
+        hm.insert(0, settings);
+        Self
+        {
+            settings: hm
+        }
     }
 }

@@ -1,8 +1,9 @@
-use std::fmt::format;
+use std::{collections::HashMap, fmt::format};
 
 use utilites::Date;
 
-use crate::settings::Settings;
+use crate::settings::{Settings, SettingsMap};
+
 
 #[derive(Debug)]
 pub struct UsersState
@@ -34,6 +35,19 @@ impl Into<UsersState> for Settings
         }
     }
 }
+impl Into<HashMap<i64, UsersState>> for SettingsMap
+{
+    fn into(self) -> HashMap<i64, UsersState>
+    {
+        let mut hm = HashMap::new();
+        UsersState
+        {
+            count: self.count,
+            ..Default::default()
+        }
+    }
+}
+
 
 impl UsersState
 {
