@@ -103,7 +103,7 @@ impl UsersState
         }
         let percent: u32 = ((current_count as f32 / overall_count as f32) * 10.0) as u32;
         let red_count = 10 - percent;
-        ["🟩".repeat(percent as usize), "🟥".repeat(red_count as usize), " ".to_owned(), (percent*10).to_string(), "%".to_owned()].concat()
+        ["🟩".repeat(percent as usize), "🟥".repeat(red_count as usize), (percent*10).to_string(), "%".to_owned()].concat()
     }
 }
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
@@ -201,7 +201,7 @@ impl ToString for UsersState
             {
                 let nick = match u.nick.as_ref()
                 {
-                    Some(n) => format!("\\([{}](tg://user?id={})\\)",n, u.id),
+                    Some(n) => format!("\\([{}](tg://user?id={})\\)",teloxide::utils::markdown::escape(&n), u.id),
                     None => "".to_owned()
                 };
                 let check = match s.status
@@ -211,7 +211,7 @@ impl ToString for UsersState
                 };
                 let date = u.updated.format(utilites::DateFormat::Serialize);
                 let date = date.split("T").collect::<Vec<_>>();
-                let line = format!("{} {} {}\n🕛 {} {}\n",check, u.name, nick, date[0].replace("-", "\\."), date[1]);
+                let line = format!("{} {} {}\n🕛 {} {}\n",check, teloxide::utils::markdown::escape(&u.name), nick, date[0].replace("-", "\\."), date[1]);
                 output.push_str(&line);
                 output.push_str(&["—".repeat(16), "\n".to_owned()].concat());
             }

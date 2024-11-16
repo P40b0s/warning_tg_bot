@@ -3,10 +3,11 @@ mod settings;
 mod app_state;
 mod api_key;
 mod timer;
+mod keys;
 use std::sync::Arc;
 
 use app_state::AppState;
-use teloxide::{dispatching::dialogue::GetChatId, payloads::GetChatMemberCount, prelude::*, repls::CommandReplExt, types::ParseMode, utils::command::BotCommands};
+use teloxide::{dispatching::dialogue::GetChatId, prelude::*, types::{ParseMode, Recipient}, utils::command::BotCommands};
 use users::{State, Status, UsersState};
 use utilites::Date;
 extern crate utilites;
@@ -43,20 +44,24 @@ async fn main()
 #[derive(BotCommands, Clone, Debug)]
 #[command(rename_rule = "lowercase", description = "Поддерживаются команды:")]
 enum Command {
-    #[command(description = "Показать это сообщение.")]
+    #[command(description = "*Показать это сообщение*")]
     Help,
-    #[command(description = "Установить количество человек которое необходимо оплюсить.")]
+    #[command(description = "*Установить количество человек которое необходимо оплюсить*")]
     SetCount(u8),
-    #[command(description = "Сколько человек необходимо оплюсить?")]
+    #[command(description = "*Сколько человек необходимо оплюсить?*")]
     GetCount,
-    #[command(description = "Показать текущий статус")]
+    #[command(description = "*Показать текущий статус*")]
     Status,
+    #[command(description = "*Чтобы начать пользоваться ботом, необходимо выполнить эту команду с выданым ключом*")]
+    Reg(String),
 }
 async fn text_handler(bot: Bot, msg: Message, state: Arc<AppState>) -> ResponseResult<()> 
 {
     logger::debug!("пришел текст {:?}",  msg.text());
     let id = msg.chat_id();
+    
     let chat_id = id.as_ref().map_or(0, |ident| ident.0);
+    let bot = Arc::new(bot);
     match msg.text()
     {
         Some(text) => 
@@ -65,10 +70,12 @@ async fn text_handler(bot: Bot, msg: Message, state: Arc<AppState>) -> ResponseR
             {
                 "+" => 
                 {
+                    if is_reject(Arc::clone(&bot),msg.chat.id, Arc::clone(&state)).await
+                    {
+                        return Ok(());
+                    }
                     if let Some(user) = msg.from.as_ref()
                     {
-                        
-                       
                         let date = msg.date.clone().naive_local();
                         let d = Date::from(date);
                         let user = users::User::new(user.id.0, user.first_name.clone(), user.username.clone(), d);
@@ -97,6 +104,10 @@ async fn text_handler(bot: Bot, msg: Message, state: Arc<AppState>) -> ResponseR
                 },
                 "-" => 
                 {
+                    if is_reject(Arc::clone(&bot),msg.chat.id, Arc::clone(&state)).await
+                    {
+                        return Ok(());
+                    }
                     if let Some(user) = msg.from.as_ref()
                     {
                         let date = msg.date.clone().naive_local();
@@ -131,7 +142,7 @@ async fn text_handler(bot: Bot, msg: Message, state: Arc<AppState>) -> ResponseR
         }
         None => 
         {
-            bot.send_message(msg.chat.id, "Send me plain text.").await?;
+            //bot.send_message(msg.chat.id, "Ниче не понятно").await?;
         }
     }
     Ok(())
@@ -142,6 +153,7 @@ async fn cmd_handler(bot: Bot, msg: Message, cmd: Command, state: Arc<AppState>)
     logger::debug!("Пришла команда {:?}",  msg.text());
     let id = msg.chat_id();
     let chat_id = id.as_ref().map_or(0, |ident| ident.0);
+    let bot = Arc::new(bot);
     match cmd 
     {
         Command::Help => 
@@ -151,6 +163,10 @@ async fn cmd_handler(bot: Bot, msg: Message, cmd: Command, state: Arc<AppState>)
         }
         Command::GetCount => 
         {
+            if is_reject(Arc::clone(&bot),msg.chat.id, Arc::clone(&state)).await
+            {
+                return Ok(());
+            }
             let guard = state.users_states.read().await;
             if let Some(u) = guard.get(&chat_id)
             {
@@ -162,6 +178,10 @@ async fn cmd_handler(bot: Bot, msg: Message, cmd: Command, state: Arc<AppState>)
         }
         Command::SetCount(cnt) => 
         {
+            if is_reject(Arc::clone(&bot),msg.chat.id, Arc::clone(&state)).await
+            {
+                return Ok(());
+            }
             let mut guard = state.users_states.write().await;
             if let Some(us) = guard.get_mut(&chat_id)
             {
@@ -175,6 +195,10 @@ async fn cmd_handler(bot: Bot, msg: Message, cmd: Command, state: Arc<AppState>)
         }
         Command::Status => 
         {
+            if is_reject(Arc::clone(&bot),msg.chat.id, Arc::clone(&state)).await
+            {
+                return Ok(());
+            }
             let guard = state.users_states.read().await;
             if let Some(u) = guard.get(&chat_id)
             {
@@ -183,7 +207,52 @@ async fn cmd_handler(bot: Bot, msg: Message, cmd: Command, state: Arc<AppState>)
             }
             ()
         }
+        Command::Reg(key) => 
+        {
+            let mut key_guard = state.keys.write().await;
+            if !key_guard.register(&key, chat_id).await
+            {
+                let _sended = bot.parse_mode(ParseMode::MarkdownV2).send_message(msg.chat.id, "❌ *Неправильный ключ регистрации*".to_owned())
+                 .await?;
+                return Ok(());
+            }
+            else 
+            {
+                let _sended = bot.parse_mode(ParseMode::MarkdownV2).send_message(msg.chat.id, "✅ *Бот успешно подключен к текущему чату*".to_owned())
+                 .await?;    
+            }
+            drop(key_guard);
+        ()
+        }
     };
 
     Ok(())
+}
+
+
+
+///возвращает true если rejected и false если ok
+async fn is_reject<C: Into<Recipient>>(bot: Arc<Bot>, chat_id: C, state: Arc<AppState>) -> bool 
+{
+    let key_guard = state.keys.read().await;
+    let r: Recipient = chat_id.into();
+    let id = if let Recipient::Id(id) = r
+    {
+        id.0
+    }
+    else
+    {
+        0
+    };
+    if !key_guard.check(&id)
+    {
+        let sended = bot.parse_mode(ParseMode::MarkdownV2).send_message(r, "❌ *Только зарегистрированные пользователи могут пользоваться этим функционалом*".to_owned())
+        .await;
+        logger::debug!("{:?}", sended);
+        return true;
+    }
+    else 
+    {
+        return false;
+    }
 }

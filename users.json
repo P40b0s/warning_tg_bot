@@ -7,9 +7,9 @@
             "id": 492163071,
             "name": "Алексей",
             "nick": "p40b0s",
-            "updated": "2024-11-16T20:41:21"
+            "updated": "2024-11-16T23:33:50"
           },
-          "status": "Minus"
+          "status": "Plus"
         },
         {
           "user": null,
@@ -38,13 +38,50 @@
             "id": 492163071,
             "name": "Алексей",
             "nick": "p40b0s",
-            "updated": "2024-11-16T20:41:24"
+            "updated": "2024-11-16T23:34:43"
           },
           "status": "Plus"
         }
       ],
       "count": 1,
       "last_position_index": 1
+    },
+    "-4572764924": {
+      "users": [
+        {
+          "user": {
+            "id": 492163071,
+            "name": "Алексей",
+            "nick": "p40b0s",
+            "updated": "2024-11-16T23:35:18"
+          },
+          "status": "Minus"
+        },
+        {
+          "user": {
+            "id": 955622732,
+            "name": "Имя",
+            "nick": "Denis_ka77",
+            "updated": "2024-11-16T22:58:33"
+          },
+          "status": "Minus"
+        },
+        {
+          "user": {
+            "id": 50670658,
+            "name": "Aleksandr",
+            "nick": "FedotOff87",
+            "updated": "2024-11-16T23:05:51"
+          },
+          "status": "Minus"
+        },
+        {
+          "user": null,
+          "status": "Minus"
+        }
+      ],
+      "count": 4,
+      "last_position_index": 3
     }
   }
 }

@@ -1128,3 +1128,274 @@
 [16-11-2024 20:46:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T20:46:21
 [16-11-2024 20:47:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T20:47:21
 [16-11-2024 20:48:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T20:48:21
+[16-11-2024 20:49:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T20:49:21
+[16-11-2024 20:50:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T20:50:21
+[16-11-2024 20:51:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T20:51:21
+[16-11-2024 20:51:22]-[warning_tg_bot:142]:⚙ DEBUG -> Пришла команда Some("/status")
+[16-11-2024 20:51:22]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 20:51:29]-[warning_tg_bot:57]:⚙ DEBUG -> пришел текст Some("+")
+[16-11-2024 20:51:29]-[warning_tg_bot:89]:⚙ DEBUG -> state:UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T20:51:29) }), status: Plus }], count: 1, last_position_index: 1 }
+[16-11-2024 20:51:29]-[warning_tg_bot:94]:⚙ DEBUG -> {492163071: UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T20:51:21) }), status: Minus }, State { user: None, status: Minus }, State { user: None, status: Minus }, State { user: None, status: Minus }, State { user: None, status: Minus }], count: 5, last_position_index: 0 }, -4569086807: UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T20:51:29) }), status: Plus }], count: 1, last_position_index: 1 }}
+[16-11-2024 20:52:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T20:52:21
+[16-11-2024 20:53:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T20:53:21
+[16-11-2024 20:54:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T20:54:21
+[16-11-2024 20:55:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T20:55:21
+[16-11-2024 20:56:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T20:56:21
+[16-11-2024 20:56:51]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 20:57:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T20:57:21
+[16-11-2024 20:58:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T20:58:21
+[16-11-2024 20:59:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T20:59:21
+[16-11-2024 21:00:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:00:21
+[16-11-2024 21:01:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:01:21
+[16-11-2024 21:02:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:02:21
+[16-11-2024 21:03:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:03:21
+[16-11-2024 21:04:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:04:21
+[16-11-2024 21:05:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:05:21
+[16-11-2024 21:06:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:06:21
+[16-11-2024 21:07:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:07:21
+[16-11-2024 21:08:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:08:21
+[16-11-2024 21:09:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:09:21
+[16-11-2024 21:10:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:10:21
+[16-11-2024 21:11:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:11:21
+[16-11-2024 21:12:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:12:21
+[16-11-2024 21:13:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:13:21
+[16-11-2024 21:13:37]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 21:14:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:14:21
+[16-11-2024 21:15:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:15:21
+[16-11-2024 21:16:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:16:21
+[16-11-2024 21:17:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:17:21
+[16-11-2024 21:18:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:18:21
+[16-11-2024 21:19:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:19:21
+[16-11-2024 21:20:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:20:21
+[16-11-2024 21:21:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:21:21
+[16-11-2024 21:22:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:22:21
+[16-11-2024 21:23:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:23:21
+[16-11-2024 21:24:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:24:21
+[16-11-2024 21:25:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:25:21
+[16-11-2024 21:26:21]-[warning_tg_bot::timer:29]:💬 Информация -> Статус юзеров сброшен 2024-11-16T21:26:21
+[16-11-2024 21:26:26]-[teloxide::dispatching::dispatcher:558]:💬 Информация -> ^C received, trying to shutdown the dispatcher...
+[16-11-2024 21:26:26]-[teloxide::dispatching::dispatcher:418]:⚙ DEBUG -> Start shutting down dispatching...
+[16-11-2024 21:26:26]-[teloxide::utils::shutdown_token:39]:💬 Информация -> Trying to shutdown the dispatcher...
+[16-11-2024 21:26:26]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 21:26:26]-[teloxide::utils::shutdown_token:82]:💬 Информация -> Dispatching has been shut down.
+[16-11-2024 21:26:26]-[teloxide::dispatching::dispatcher:560]:💬 Информация -> dispatcher is shutdown...
+[16-11-2024 21:26:49]-[warning_tg_bot::timer::tests:38]:💬 Информация -> h: 21
+[16-11-2024 21:28:04]-[warning_tg_bot::timer::tests:37]:💬 Информация -> h: 01
+[16-11-2024 21:28:16]-[warning_tg_bot::timer::tests:37]:💬 Информация -> h: 03
+[16-11-2024 22:21:03]-[warning_tg_bot:19]:💬 Информация -> Starting command bot...
+[16-11-2024 22:21:03]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 22:21:04]-[teloxide::dispatching::dispatcher:391]:⚙ DEBUG -> hinting allowed updates: [Message]
+[16-11-2024 22:21:21]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/status")
+[16-11-2024 22:21:21]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 22:21:28]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/status")
+[16-11-2024 22:21:45]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("+")
+[16-11-2024 22:22:06]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/help")
+[16-11-2024 22:22:06]-[teloxide::error_handlers:209]:❌ Ошибка -> Error: Api(CantParseEntities("Bad Request: can't parse entities: Character '.' is reserved and must be escaped with the preceding '\\'"))
+[16-11-2024 22:22:33]-[teloxide::dispatching::dispatcher:558]:💬 Информация -> ^C received, trying to shutdown the dispatcher...
+[16-11-2024 22:22:33]-[teloxide::dispatching::dispatcher:418]:⚙ DEBUG -> Start shutting down dispatching...
+[16-11-2024 22:22:33]-[teloxide::utils::shutdown_token:39]:💬 Информация -> Trying to shutdown the dispatcher...
+[16-11-2024 22:22:33]-[teloxide::utils::shutdown_token:82]:💬 Информация -> Dispatching has been shut down.
+[16-11-2024 22:22:33]-[teloxide::dispatching::dispatcher:560]:💬 Информация -> dispatcher is shutdown...
+[16-11-2024 22:22:45]-[warning_tg_bot:19]:💬 Информация -> Starting command bot...
+[16-11-2024 22:22:45]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 22:22:45]-[teloxide::dispatching::dispatcher:391]:⚙ DEBUG -> hinting allowed updates: [Message]
+[16-11-2024 22:22:48]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/help")
+[16-11-2024 22:22:48]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 22:22:56]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/status")
+[16-11-2024 22:23:50]-[teloxide::dispatching::dispatcher:558]:💬 Информация -> ^C received, trying to shutdown the dispatcher...
+[16-11-2024 22:23:50]-[teloxide::dispatching::dispatcher:418]:⚙ DEBUG -> Start shutting down dispatching...
+[16-11-2024 22:23:50]-[teloxide::utils::shutdown_token:39]:💬 Информация -> Trying to shutdown the dispatcher...
+[16-11-2024 22:23:50]-[teloxide::utils::shutdown_token:82]:💬 Информация -> Dispatching has been shut down.
+[16-11-2024 22:23:50]-[teloxide::dispatching::dispatcher:560]:💬 Информация -> dispatcher is shutdown...
+[16-11-2024 22:24:05]-[warning_tg_bot:19]:💬 Информация -> Starting command bot...
+[16-11-2024 22:24:05]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 22:24:05]-[teloxide::dispatching::dispatcher:391]:⚙ DEBUG -> hinting allowed updates: [Message]
+[16-11-2024 22:24:12]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/status")
+[16-11-2024 22:24:31]-[teloxide::update_listeners::polling:460]:💬 Информация -> retrying getting updates in 1s
+[16-11-2024 22:24:31]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 22:24:31]-[teloxide::error_handlers:209]:❌ Ошибка -> An error from the update listener: Network(reqwest::Error { kind: Request, url: Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("api.telegram.org")), port: None, path: "/token:redacted/GetUpdates", query: None, fragment: None }, source: TimedOut })
+[16-11-2024 22:25:51]-[warning_tg_bot:19]:💬 Информация -> Starting command bot...
+[16-11-2024 22:25:51]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 22:25:51]-[teloxide::dispatching::dispatcher:391]:⚙ DEBUG -> hinting allowed updates: [Message]
+[16-11-2024 22:25:53]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/status")
+[16-11-2024 22:25:53]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 22:25:54]-[warning_tg_bot:247]:⚙ DEBUG -> Err(Api(CantParseEntities("Bad Request: can't parse entities: Character '!' is reserved and must be escaped with the preceding '\\'")))
+[16-11-2024 22:26:55]-[teloxide::dispatching::dispatcher:558]:💬 Информация -> ^C received, trying to shutdown the dispatcher...
+[16-11-2024 22:26:55]-[teloxide::dispatching::dispatcher:418]:⚙ DEBUG -> Start shutting down dispatching...
+[16-11-2024 22:26:55]-[teloxide::utils::shutdown_token:39]:💬 Информация -> Trying to shutdown the dispatcher...
+[16-11-2024 22:26:58]-[teloxide::dispatching::dispatcher:560]:💬 Информация -> dispatcher is shutdown...
+[16-11-2024 22:26:58]-[teloxide::utils::shutdown_token:82]:💬 Информация -> Dispatching has been shut down.
+[16-11-2024 22:27:08]-[warning_tg_bot:19]:💬 Информация -> Starting command bot...
+[16-11-2024 22:27:08]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 22:27:08]-[teloxide::dispatching::dispatcher:391]:⚙ DEBUG -> hinting allowed updates: [Message]
+[16-11-2024 22:27:09]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/status")
+[16-11-2024 22:27:09]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 22:27:09]-[warning_tg_bot:247]:⚙ DEBUG -> Ok(Message { id: MessageId(402), thread_id: None, from: Some(User { id: UserId(8166589110), is_bot: true, first_name: "alarming", last_name: None, username: Some("alarm_starpom_bot"), language_code: None, is_premium: false, added_to_attachment_menu: false }), sender_chat: None, date: 2024-11-16T19:27:09Z, chat: Chat { id: ChatId(-4569086807), kind: Public(ChatPublic { title: Some("Алексей and Сынок (Серж)"), kind: Group(PublicChatGroup { permissions: None }), description: None, invite_link: None, has_protected_content: None }), photo: None, available_reactions: None, pinned_message: None, message_auto_delete_time: None, has_hidden_members: false, has_aggressive_anti_spam_enabled: false, chat_full_info: ChatFullInfo { accent_color_id: None, background_custom_emoji_id: None, profile_accent_color_id: None, profile_background_custom_emoji_id: None, emoji_status_custom_emoji_id: None, emoji_status_expiration_date: None, has_visible_history: false } }, is_topic_message: false, via_bot: None, kind: Common(MessageCommon { author_signature: None, forward_origin: None, reply_to_message: None, external_reply: None, quote: None, edit_date: None, media_kind: Text(MediaText { text: "❌ Только зарегистрированные пользователи могут пользоваться этим функционалом", entities: [MessageEntity { kind: Bold, offset: 2, length: 75 }], link_preview_options: None }), reply_markup: None, is_automatic_forward: false, has_protected_content: false }) })
+[16-11-2024 22:27:16]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/help")
+[16-11-2024 22:27:20]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("/setcount")
+[16-11-2024 22:27:42]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/reg 713e4412-1962-47d6-9ae3-9d658b1a06c7")
+[16-11-2024 22:27:54]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/status")
+[16-11-2024 22:30:15]-[teloxide::dispatching::dispatcher:418]:⚙ DEBUG -> Start shutting down dispatching...
+[16-11-2024 22:30:15]-[teloxide::dispatching::dispatcher:558]:💬 Информация -> ^C received, trying to shutdown the dispatcher...
+[16-11-2024 22:30:15]-[teloxide::utils::shutdown_token:39]:💬 Информация -> Trying to shutdown the dispatcher...
+[16-11-2024 22:30:15]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 22:30:15]-[teloxide::utils::shutdown_token:82]:💬 Информация -> Dispatching has been shut down.
+[16-11-2024 22:30:15]-[teloxide::dispatching::dispatcher:560]:💬 Информация -> dispatcher is shutdown...
+[16-11-2024 22:30:35]-[warning_tg_bot:19]:💬 Информация -> Starting command bot...
+[16-11-2024 22:30:35]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 22:30:35]-[teloxide::dispatching::dispatcher:391]:⚙ DEBUG -> hinting allowed updates: [Message]
+[16-11-2024 22:30:49]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/reg 713e4412-1962-47d6-9ae3-9d658b1a06c7")
+[16-11-2024 22:30:49]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 22:32:42]-[teloxide::dispatching::dispatcher:418]:⚙ DEBUG -> Start shutting down dispatching...
+[16-11-2024 22:32:42]-[teloxide::dispatching::dispatcher:558]:💬 Информация -> ^C received, trying to shutdown the dispatcher...
+[16-11-2024 22:32:42]-[teloxide::utils::shutdown_token:39]:💬 Информация -> Trying to shutdown the dispatcher...
+[16-11-2024 22:32:42]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 22:32:45]-[teloxide::utils::shutdown_token:82]:💬 Информация -> Dispatching has been shut down.
+[16-11-2024 22:32:45]-[teloxide::dispatching::dispatcher:560]:💬 Информация -> dispatcher is shutdown...
+[16-11-2024 22:33:00]-[warning_tg_bot:19]:💬 Информация -> Starting command bot...
+[16-11-2024 22:33:00]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 22:33:00]-[teloxide::dispatching::dispatcher:391]:⚙ DEBUG -> hinting allowed updates: [Message]
+[16-11-2024 22:33:34]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/reg 713e4412-1962-47d6-9ae3-9d658b1a06c7")
+[16-11-2024 22:33:34]-[warning_tg_bot::keys:17]:💬 Информация -> Ok(())
+[16-11-2024 22:33:34]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 22:33:47]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/status")
+[16-11-2024 22:33:56]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/status")
+[16-11-2024 22:34:02]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/status")
+[16-11-2024 22:46:49]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("/start")
+[16-11-2024 22:46:52]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("/start")
+[16-11-2024 22:48:53]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 22:50:54]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст None
+[16-11-2024 22:50:54]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 22:51:27]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/reg 713e4412-1962-47d6-9ae3-9d658b1a06c7")
+[16-11-2024 22:51:27]-[warning_tg_bot::keys:17]:💬 Информация -> Ok(())
+[16-11-2024 22:51:49]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/setcount 4")
+[16-11-2024 22:51:53]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("+")
+[16-11-2024 22:51:53]-[warning_tg_bot:97]:⚙ DEBUG -> state:UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T22:51:53) }), status: Plus }], count: 1, last_position_index: 0 }
+[16-11-2024 22:51:53]-[warning_tg_bot:102]:⚙ DEBUG -> {492163071: UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T20:51:21) }), status: Minus }, State { user: None, status: Minus }, State { user: None, status: Minus }, State { user: None, status: Minus }, State { user: None, status: Minus }], count: 5, last_position_index: 0 }, -4569086807: UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T20:51:29) }), status: Plus }], count: 1, last_position_index: 1 }, -4572764924: UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T22:51:53) }), status: Plus }], count: 1, last_position_index: 0 }}
+[16-11-2024 22:52:08]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("Леха это что за хуйня ?")
+[16-11-2024 22:52:16]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("Какой смысл это бота ?")
+[16-11-2024 22:52:18]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("+ поставь")
+[16-11-2024 22:52:28]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("Да мы и так ставим +")
+[16-11-2024 22:52:36]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("да вот ща поставь блин")
+[16-11-2024 22:52:40]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("+")
+[16-11-2024 22:52:40]-[warning_tg_bot:97]:⚙ DEBUG -> state:UsersState { users: [State { user: Some(User { id: 955622732, name: "Имя", nick: Some("Denis_ka77"), updated: Date(2024-11-16T22:52:40) }), status: Plus }], count: 1, last_position_index: 1 }
+[16-11-2024 22:52:40]-[teloxide::error_handlers:209]:❌ Ошибка -> Error: Api(CantParseEntities("Bad Request: can't parse entities: Character ']' is reserved and must be escaped with the preceding '\\'"))
+[16-11-2024 22:53:07]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("у тебя какой то странный +)")
+[16-11-2024 22:53:10]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("+")
+[16-11-2024 22:53:10]-[warning_tg_bot:97]:⚙ DEBUG -> state:UsersState { users: [State { user: Some(User { id: 955622732, name: "Имя", nick: Some("Denis_ka77"), updated: Date(2024-11-16T22:52:40) }), status: Plus }, State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T22:53:10) }), status: Plus }], count: 2, last_position_index: 1 }
+[16-11-2024 22:53:10]-[teloxide::error_handlers:209]:❌ Ошибка -> Error: Api(CantParseEntities("Bad Request: can't parse entities: Character ']' is reserved and must be escaped with the preceding '\\'"))
+[16-11-2024 22:53:13]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("+")
+[16-11-2024 22:53:13]-[warning_tg_bot:97]:⚙ DEBUG -> state:UsersState { users: [State { user: Some(User { id: 955622732, name: "Имя", nick: Some("Denis_ka77"), updated: Date(2024-11-16T22:53:13) }), status: Plus }, State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T22:53:10) }), status: Plus }], count: 2, last_position_index: 1 }
+[16-11-2024 22:53:13]-[teloxide::error_handlers:209]:❌ Ошибка -> Error: Api(CantParseEntities("Bad Request: can't parse entities: Character ']' is reserved and must be escaped with the preceding '\\'"))
+[16-11-2024 22:53:18]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("И что ?")
+[16-11-2024 22:53:25]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("сломал мне его)")
+[16-11-2024 22:53:30]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("Бляяя")
+[16-11-2024 22:53:32]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("ща подправлю")
+[16-11-2024 22:53:37]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("Вирус 🦠 какой то")
+[16-11-2024 22:53:47]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("смысл что можно посмотреть кто когда + поставил")
+[16-11-2024 22:53:56]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("носью + обнуляются")
+[16-11-2024 22:54:06]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("можно просто проверить статистику")
+[16-11-2024 22:54:11]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/status")
+[16-11-2024 22:54:11]-[teloxide::error_handlers:209]:❌ Ошибка -> Error: Api(CantParseEntities("Bad Request: can't parse entities: Character ']' is reserved and must be escaped with the preceding '\\'"))
+[16-11-2024 22:55:17]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("+")
+[16-11-2024 22:55:17]-[warning_tg_bot:97]:⚙ DEBUG -> state:UsersState { users: [State { user: Some(User { id: 955622732, name: "Имя", nick: Some("Denis_ka77"), updated: Date(2024-11-16T22:53:13) }), status: Plus }, State { user: Some(User { id: 50670658, name: "Aleksandr", nick: Some("FedotOff87"), updated: Date(2024-11-16T22:55:17) }), status: Plus }], count: 2, last_position_index: 2 }
+[16-11-2024 22:55:17]-[teloxide::error_handlers:209]:❌ Ошибка -> Error: Api(CantParseEntities("Bad Request: can't parse entities: Character ']' is reserved and must be escaped with the preceding '\\'"))
+[16-11-2024 22:55:18]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/status")
+[16-11-2024 22:55:18]-[teloxide::error_handlers:209]:❌ Ошибка -> Error: Api(CantParseEntities("Bad Request: can't parse entities: Character ']' is reserved and must be escaped with the preceding '\\'"))
+[16-11-2024 22:55:23]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/status")
+[16-11-2024 22:55:23]-[teloxide::error_handlers:209]:❌ Ошибка -> Error: Api(CantParseEntities("Bad Request: can't parse entities: Character ']' is reserved and must be escaped with the preceding '\\'"))
+[16-11-2024 22:55:28]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/status")
+[16-11-2024 22:55:28]-[teloxide::error_handlers:209]:❌ Ошибка -> Error: Api(CantParseEntities("Bad Request: can't parse entities: Character ']' is reserved and must be escaped with the preceding '\\'"))
+[16-11-2024 22:55:32]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("+")
+[16-11-2024 22:55:32]-[warning_tg_bot:97]:⚙ DEBUG -> state:UsersState { users: [State { user: Some(User { id: 955622732, name: "Имя", nick: Some("Denis_ka77"), updated: Date(2024-11-16T22:55:32) }), status: Plus }, State { user: Some(User { id: 50670658, name: "Aleksandr", nick: Some("FedotOff87"), updated: Date(2024-11-16T22:55:17) }), status: Plus }], count: 2, last_position_index: 2 }
+[16-11-2024 22:55:32]-[teloxide::error_handlers:209]:❌ Ошибка -> Error: Api(CantParseEntities("Bad Request: can't parse entities: Character ']' is reserved and must be escaped with the preceding '\\'"))
+[16-11-2024 22:55:34]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("да погоди, там ником кривым поломали)")
+[16-11-2024 22:55:39]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("ща я перепущу")
+[16-11-2024 22:55:45]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("перезапущу")
+[16-11-2024 22:56:59]-[teloxide::dispatching::dispatcher:558]:💬 Информация -> ^C received, trying to shutdown the dispatcher...
+[16-11-2024 22:56:59]-[teloxide::dispatching::dispatcher:418]:⚙ DEBUG -> Start shutting down dispatching...
+[16-11-2024 22:56:59]-[teloxide::utils::shutdown_token:39]:💬 Информация -> Trying to shutdown the dispatcher...
+[16-11-2024 22:56:59]-[teloxide::utils::shutdown_token:82]:💬 Информация -> Dispatching has been shut down.
+[16-11-2024 22:56:59]-[teloxide::dispatching::dispatcher:560]:💬 Информация -> dispatcher is shutdown...
+[16-11-2024 22:57:11]-[warning_tg_bot:19]:💬 Информация -> Starting command bot...
+[16-11-2024 22:57:11]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 22:57:12]-[teloxide::dispatching::dispatcher:391]:⚙ DEBUG -> hinting allowed updates: [Message]
+[16-11-2024 22:57:17]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/status")
+[16-11-2024 22:57:17]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 22:58:33]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("+")
+[16-11-2024 22:58:33]-[warning_tg_bot:97]:⚙ DEBUG -> state:UsersState { users: [State { user: Some(User { id: 955622732, name: "Имя", nick: Some("Denis_ka77"), updated: Date(2024-11-16T22:58:33) }), status: Plus }], count: 1, last_position_index: 1 }
+[16-11-2024 22:58:33]-[warning_tg_bot:102]:⚙ DEBUG -> {-4569086807: UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T20:51:29) }), status: Plus }], count: 1, last_position_index: 1 }, 492163071: UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T20:51:21) }), status: Minus }, State { user: None, status: Minus }, State { user: None, status: Minus }, State { user: None, status: Minus }, State { user: None, status: Minus }], count: 5, last_position_index: 0 }, -4572764924: UsersState { users: [State { user: Some(User { id: 955622732, name: "Имя", nick: Some("Denis_ka77"), updated: Date(2024-11-16T22:58:33) }), status: Plus }], count: 1, last_position_index: 1 }}
+[16-11-2024 22:58:55]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/setcount 4")
+[16-11-2024 23:05:39]-[warning_tg_bot:154]:⚙ DEBUG -> Пришла команда Some("/status")
+[16-11-2024 23:05:39]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 23:05:51]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("+")
+[16-11-2024 23:05:51]-[warning_tg_bot:97]:⚙ DEBUG -> state:UsersState { users: [State { user: Some(User { id: 955622732, name: "Имя", nick: Some("Denis_ka77"), updated: Date(2024-11-16T22:58:33) }), status: Plus }, State { user: Some(User { id: 50670658, name: "Aleksandr", nick: Some("FedotOff87"), updated: Date(2024-11-16T23:05:51) }), status: Plus }, State { user: None, status: Minus }, State { user: None, status: Minus }], count: 4, last_position_index: 2 }
+[16-11-2024 23:05:51]-[warning_tg_bot:102]:⚙ DEBUG -> {-4569086807: UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T20:51:29) }), status: Plus }], count: 1, last_position_index: 1 }, 492163071: UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T20:51:21) }), status: Minus }, State { user: None, status: Minus }, State { user: None, status: Minus }, State { user: None, status: Minus }, State { user: None, status: Minus }], count: 5, last_position_index: 0 }, -4572764924: UsersState { users: [State { user: Some(User { id: 955622732, name: "Имя", nick: Some("Denis_ka77"), updated: Date(2024-11-16T22:58:33) }), status: Plus }, State { user: Some(User { id: 50670658, name: "Aleksandr", nick: Some("FedotOff87"), updated: Date(2024-11-16T23:05:51) }), status: Plus }, State { user: None, status: Minus }, State { user: None, status: Minus }], count: 4, last_position_index: 2 }}
+[16-11-2024 23:06:29]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("Норм ботик")
+[16-11-2024 23:06:44]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("да я незнаю что товарищь вспылил...")
+[16-11-2024 23:06:53]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("самим же удобней")
+[16-11-2024 23:07:16]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("Ну как бы согласно цепочке ты ему звонишь)")
+[16-11-2024 23:07:23]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("😅😅")
+[16-11-2024 23:07:33]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("А мы согласны)")
+[16-11-2024 23:07:39]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("ну собирать статистику буду тут, ну звонить что делать...")
+[16-11-2024 23:07:42]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("Вообще завтра я позвоню Саньку Гурееву и все")
+[16-11-2024 23:08:15]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("Еще один что ли?)))")
+[16-11-2024 23:08:19]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("некоторые вообще думают что это вирус...")
+[16-11-2024 23:08:27]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("это обычный бот")
+[16-11-2024 23:08:34]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("как тысячи других")
+[16-11-2024 23:09:12]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("хотл сделать как лучше) только зря время потратил почти 5 часов)")
+[16-11-2024 23:10:20]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("Лёх, норм бот. Давай его юзать.")
+[16-11-2024 23:10:34]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("Да норм бот")
+[16-11-2024 23:10:46]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("Просто Эдуард пропал")
+[16-11-2024 23:11:04]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("Значит кто будет докладывать Овсянникову ?")
+[16-11-2024 23:11:10]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("он думал что сделал бота который сам + ставит)")
+[16-11-2024 23:11:12]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("Настрой автоматом сообщения, и все. А Лёха будет звонить Эдуарду.")
+[16-11-2024 23:11:27]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("Ок")
+[16-11-2024 23:11:27]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 23:12:05]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("Ну возможно и тебе сам Эдуард будет звонить)")
+[16-11-2024 23:12:15]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("А вообще Леха молодец 👍")
+[16-11-2024 23:12:21]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("Время потратил свое")
+[16-11-2024 23:12:22]-[teloxide::dispatching::dispatcher:558]:💬 Информация -> ^C received, trying to shutdown the dispatcher...
+[16-11-2024 23:12:22]-[teloxide::dispatching::dispatcher:418]:⚙ DEBUG -> Start shutting down dispatching...
+[16-11-2024 23:12:22]-[teloxide::utils::shutdown_token:39]:💬 Информация -> Trying to shutdown the dispatcher...
+[16-11-2024 23:12:22]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 23:12:25]-[teloxide::utils::shutdown_token:82]:💬 Информация -> Dispatching has been shut down.
+[16-11-2024 23:12:25]-[teloxide::dispatching::dispatcher:560]:💬 Информация -> dispatcher is shutdown...
+[16-11-2024 23:12:38]-[warning_tg_bot:19]:💬 Информация -> Starting command bot...
+[16-11-2024 23:12:38]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 23:12:38]-[teloxide::dispatching::dispatcher:391]:⚙ DEBUG -> hinting allowed updates: [Message]
+[16-11-2024 23:12:42]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст None
+[16-11-2024 23:12:42]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 23:12:45]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("его только захостить нужно куда то)")
+[16-11-2024 23:13:00]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("пока с домашнего компа работает")
+[16-11-2024 23:14:11]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("надо его другим отделам продать)")
+[16-11-2024 23:14:45]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("А будете ебать голову мне этой хуйней, я вообще без служебного телефона никому и ничего писать не буду, да и звонить тоже. А Лёха молодец, автоматизация.")
+[16-11-2024 23:15:16]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("Ну он интересен скорее тем кто стату снимает, а не отписывается)")
+[16-11-2024 23:15:23]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("Но все же")
+[16-11-2024 23:16:00]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("ну просто я втал например + поставил и остальные так же, начальник смотрит статистику и видит кто отписался кто нет, вот была бы автоматизация)")
+[16-11-2024 23:21:06]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("Не то мы Лёха автоматизировать стали)))")
+[16-11-2024 23:21:42]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("можно и что-то другое если есть идеи)")
+[16-11-2024 23:28:04]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 23:33:26]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("-")
+[16-11-2024 23:33:26]-[warning_tg_bot:251]:⚙ DEBUG -> Ok(Message { id: MessageId(500), thread_id: None, from: Some(User { id: UserId(8166589110), is_bot: true, first_name: "Секретарша", last_name: None, username: Some("alarm_starpom_bot"), language_code: None, is_premium: false, added_to_attachment_menu: false }), sender_chat: None, date: 2024-11-16T20:33:26Z, chat: Chat { id: ChatId(492163071), kind: Private(ChatPrivate { username: Some("p40b0s"), first_name: Some("Алексей"), last_name: None, bio: None, has_private_forwards: None, has_restricted_voice_and_video_messages: None }), photo: None, available_reactions: None, pinned_message: None, message_auto_delete_time: None, has_hidden_members: false, has_aggressive_anti_spam_enabled: false, chat_full_info: ChatFullInfo { accent_color_id: None, background_custom_emoji_id: None, profile_accent_color_id: None, profile_background_custom_emoji_id: None, emoji_status_custom_emoji_id: None, emoji_status_expiration_date: None, has_visible_history: false } }, is_topic_message: false, via_bot: None, kind: Common(MessageCommon { author_signature: None, forward_origin: None, reply_to_message: None, external_reply: None, quote: None, edit_date: None, media_kind: Text(MediaText { text: "❌ Только зарегистрированные пользователи могут пользоваться этим функционалом", entities: [MessageEntity { kind: Bold, offset: 2, length: 75 }], link_preview_options: None }), reply_markup: None, is_automatic_forward: false, has_protected_content: false }) })
+[16-11-2024 23:33:46]-[warning_tg_bot:153]:⚙ DEBUG -> Пришла команда Some("/reg 713e4412-1962-47d6-9ae3-9d658b1a06c7")
+[16-11-2024 23:33:46]-[warning_tg_bot::keys:17]:💬 Информация -> Ok(())
+[16-11-2024 23:33:46]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 23:33:50]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("+")
+[16-11-2024 23:33:50]-[warning_tg_bot:96]:⚙ DEBUG -> state:UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T23:33:50) }), status: Plus }, State { user: None, status: Minus }, State { user: None, status: Minus }, State { user: None, status: Minus }, State { user: None, status: Minus }], count: 5, last_position_index: 0 }
+[16-11-2024 23:33:50]-[warning_tg_bot:101]:⚙ DEBUG -> {492163071: UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T23:33:50) }), status: Plus }, State { user: None, status: Minus }, State { user: None, status: Minus }, State { user: None, status: Minus }, State { user: None, status: Minus }], count: 5, last_position_index: 0 }, -4569086807: UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T20:51:29) }), status: Plus }], count: 1, last_position_index: 1 }, -4572764924: UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T20:51:21) }), status: Minus }, State { user: Some(User { id: 955622732, name: "Имя", nick: Some("Denis_ka77"), updated: Date(2024-11-16T22:58:33) }), status: Plus }, State { user: Some(User { id: 50670658, name: "Aleksandr", nick: Some("FedotOff87"), updated: Date(2024-11-16T23:05:51) }), status: Plus }, State { user: None, status: Minus }], count: 4, last_position_index: 2 }}
+[16-11-2024 23:34:43]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("+")
+[16-11-2024 23:34:43]-[warning_tg_bot:96]:⚙ DEBUG -> state:UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T23:34:43) }), status: Plus }], count: 1, last_position_index: 1 }
+[16-11-2024 23:34:43]-[warning_tg_bot:101]:⚙ DEBUG -> {492163071: UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T23:33:50) }), status: Plus }, State { user: None, status: Minus }, State { user: None, status: Minus }, State { user: None, status: Minus }, State { user: None, status: Minus }], count: 5, last_position_index: 0 }, -4569086807: UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T23:34:43) }), status: Plus }], count: 1, last_position_index: 1 }, -4572764924: UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T20:51:21) }), status: Minus }, State { user: Some(User { id: 955622732, name: "Имя", nick: Some("Denis_ka77"), updated: Date(2024-11-16T22:58:33) }), status: Plus }, State { user: Some(User { id: 50670658, name: "Aleksandr", nick: Some("FedotOff87"), updated: Date(2024-11-16T23:05:51) }), status: Plus }, State { user: None, status: Minus }], count: 4, last_position_index: 2 }}
+[16-11-2024 23:35:18]-[warning_tg_bot:60]:⚙ DEBUG -> пришел текст Some("+")
+[16-11-2024 23:35:18]-[warning_tg_bot:96]:⚙ DEBUG -> state:UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T23:35:18) }), status: Plus }, State { user: Some(User { id: 955622732, name: "Имя", nick: Some("Denis_ka77"), updated: Date(2024-11-16T22:58:33) }), status: Plus }, State { user: Some(User { id: 50670658, name: "Aleksandr", nick: Some("FedotOff87"), updated: Date(2024-11-16T23:05:51) }), status: Plus }, State { user: None, status: Minus }], count: 4, last_position_index: 2 }
+[16-11-2024 23:35:18]-[warning_tg_bot:101]:⚙ DEBUG -> {492163071: UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T23:33:50) }), status: Plus }, State { user: None, status: Minus }, State { user: None, status: Minus }, State { user: None, status: Minus }, State { user: None, status: Minus }], count: 5, last_position_index: 0 }, -4569086807: UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T23:34:43) }), status: Plus }], count: 1, last_position_index: 1 }, -4572764924: UsersState { users: [State { user: Some(User { id: 492163071, name: "Алексей", nick: Some("p40b0s"), updated: Date(2024-11-16T23:35:18) }), status: Plus }, State { user: Some(User { id: 955622732, name: "Имя", nick: Some("Denis_ka77"), updated: Date(2024-11-16T22:58:33) }), status: Plus }, State { user: Some(User { id: 50670658, name: "Aleksandr", nick: Some("FedotOff87"), updated: Date(2024-11-16T23:05:51) }), status: Plus }, State { user: None, status: Minus }], count: 4, last_position_index: 2 }}
+[16-11-2024 23:43:26]-[teloxide::dispatching::dispatcher:558]:💬 Информация -> ^C received, trying to shutdown the dispatcher...
+[16-11-2024 23:43:26]-[teloxide::dispatching::dispatcher:418]:⚙ DEBUG -> Start shutting down dispatching...
+[16-11-2024 23:43:26]-[teloxide::utils::shutdown_token:39]:💬 Информация -> Trying to shutdown the dispatcher...
+[16-11-2024 23:43:26]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 23:43:26]-[teloxide::utils::shutdown_token:82]:💬 Информация -> Dispatching has been shut down.
+[16-11-2024 23:43:26]-[teloxide::dispatching::dispatcher:560]:💬 Информация -> dispatcher is shutdown...
+[16-11-2024 23:43:40]-[warning_tg_bot:19]:💬 Информация -> Starting command bot...
+[16-11-2024 23:43:40]-[reqwest::connect:449]:⚙ DEBUG -> starting new connection: https://api.telegram.org/
+[16-11-2024 23:43:40]-[teloxide::dispatching::dispatcher:391]:⚙ DEBUG -> hinting allowed updates: [Message]
