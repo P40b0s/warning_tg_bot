@@ -18,15 +18,14 @@ pub async fn reset_pluses(state: Arc<AppState>, delay: u64)
             {
                 u.1.reset_status();
             }
-            logger::info!("Статус юзеров сброшен {}", Date::now())
+            logger::info!("Статус юзеров сброшен {}", Date::now());
+            drop(guard);
         }
-        let mut guard = state.users_states.write().await;
-        for u in guard.iter_mut()
-        {
-            u.1.reset_status();
-        }
-        drop(guard);
-        logger::info!("Статус юзеров сброшен {}", Date::now());
+        // let mut guard = state.users_states.write().await;
+        // for u in guard.iter_mut()
+        // {
+        //     u.1.reset_status();
+        // }
         tokio::time::sleep(tokio::time::Duration::from_secs(delay)).await;
     }
 }

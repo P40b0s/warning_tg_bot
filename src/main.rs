@@ -22,7 +22,7 @@ async fn main()
     //let handler = tokio::runtime::Runtime::new().unwrap();
     let sleep_state = Arc::clone(&app_state);
     //tokio::task::spawn_blocking(move || handler.spawn(async {timer::reset_pluses(sleep_state, 60).await}));
-    tokio::spawn(async {timer::reset_pluses(sleep_state, 60).await});
+    tokio::spawn(async {timer::reset_pluses(sleep_state, 60*60*1).await});
     Dispatcher::builder(
         bot,
         dptree::entry()
