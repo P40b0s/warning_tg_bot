@@ -1,25 +1,51 @@
 use std::{collections::HashMap, sync::Arc};
 
-use crate::{settings::{Settings, SettingsMap}, users::UsersState};
+use serde::{Deserialize, Serialize};
+
+use crate::users::{UsersMap, UsersState};
+
 
 pub struct AppState
 {
-    pub users_states : HashMap<i64, tokio::sync::RwLock<UsersState>>,
-    pub settings: HashMap<i64, tokio::sync::RwLock<Settings>>
+    pub users_states : tokio::sync::RwLock<HashMap<i64, UsersState>>,
+    //pub settings: tokio::sync::RwLock<SettingsMap>
 }
-//TODO нужен hashmap с настройками и hashmap  с UserState для каждого чата нужно свое состояние
+
 impl AppState
 {
     pub fn new() -> Arc<Self>
     {
-        let settings = SettingsMap::default();
+        //let settings = SettingsMap::load();
+        Arc::new(Self::load_users())
         
-        let users_state: UsersState = settings.clone().into();
-
-        Arc::new(Self
+    }
+    pub async fn save_users(&self)
+    {
+        let guard = self.users_states.read().await;
+        let map = UsersMap
         {
-            users_states: HashMap::tokio::sync::RwLock::new(users_state),
-            settings: tokio::sync::RwLock::new(settings)
-        })
+            states: guard.clone()
+        };
+        let r = utilites::serialize(map, "users.json", false, utilites::Serializer::Json);
+    }
+    pub fn load_users() -> Self
+    {
+
+        if let Ok(s) = utilites::deserialize::<UsersMap, _>("users.json", false, utilites::Serializer::Json)
+        {
+            Self
+            {
+                users_states: tokio::sync::RwLock::new(s.states)
+            }
+        }
+        else 
+        {
+            Self
+            {
+                users_states: tokio::sync::RwLock::new(HashMap::new()),
+                //settings: tokio::sync::RwLock::new(settings)
+            }
+        }
+       
     }
 }

@@ -1,0 +1,50 @@
+{
+  "states": {
+    "492163071": {
+      "users": [
+        {
+          "user": {
+            "id": 492163071,
+            "name": "Алексей",
+            "nick": "p40b0s",
+            "updated": "2024-11-16T20:41:21"
+          },
+          "status": "Minus"
+        },
+        {
+          "user": null,
+          "status": "Minus"
+        },
+        {
+          "user": null,
+          "status": "Minus"
+        },
+        {
+          "user": null,
+          "status": "Minus"
+        },
+        {
+          "user": null,
+          "status": "Minus"
+        }
+      ],
+      "count": 5,
+      "last_position_index": 0
+    },
+    "-4569086807": {
+      "users": [
+        {
+          "user": {
+            "id": 492163071,
+            "name": "Алексей",
+            "nick": "p40b0s",
+            "updated": "2024-11-16T20:41:24"
+          },
+          "status": "Plus"
+        }
+      ],
+      "count": 1,
+      "last_position_index": 1
+    }
+  }
+}
