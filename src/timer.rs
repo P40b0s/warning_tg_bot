@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use utilites::Date;
 
-use crate::app_state::AppState;
+use crate::{app_state::AppState, db::IUserRepository};
 
 pub async fn reset_pluses(state: Arc<AppState>, delay: u64)
 {
@@ -12,12 +12,7 @@ pub async fn reset_pluses(state: Arc<AppState>, delay: u64)
         let h = time.as_naive_datetime().time().format("%H").to_string();
         if h == "03"
         {
-            let mut guard = state.users_states.write().await;
-            for u in guard.iter_mut()
-            {
-                u.1.reset_status();
-            }
-            drop(guard);
+            state.users_repository.set_status_for_all(crate::users::Status::Minus).await;
         }
         tokio::time::sleep(tokio::time::Duration::from_secs(delay)).await;
     }

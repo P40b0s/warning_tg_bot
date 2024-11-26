@@ -8,83 +8,75 @@ use utilites::Date;
 #[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct UsersState
 {
-    users: Vec<State>,
-    count: u8,
-    last_position_index: usize
+    users: Vec<User>,
+    count: u32,
 }
-impl Default for UsersState 
+impl Default for UsersState
 {
     fn default() -> Self 
     {
         Self
         {
             users: Vec::with_capacity(0),
-            count: 0,
-            last_position_index: 0
+            count: 0
         }
-    }   
+    }
 }
-
 
 impl UsersState
 {
-    pub fn add_of_replace_status(&mut self, state: State)
+    pub fn new(users: Vec<User>, count: u32) -> Self
     {
-        let user = self.users.iter_mut().find(|s| *s == &state);
-        if let Some(user) = user
+        Self
         {
-            *user = state
+            users,
+            count
+        }
+    }
+    pub fn add_of_replace_user(&mut self, user: User)
+    {
+        let exits_user = self.users.iter_mut().find(|s| *s == &user);
+        if let Some(u) = exits_user
+        {
+            *u = user
         }
         else 
         {
-            //пока индекс меньше количества, заменяем дефолтные стейты, как только сравняется начинаем добавлять новых
-            if self.users.len() > self.last_position_index
-            {
-                self.users[self.last_position_index] = state;
-                self.last_position_index +=1;
-            }
-            else 
-            {
-                self.users.push(state);
-                self.count +=1;
-            }
+            self.users.push(user);
+            self.count +=1;
         }
     }
-    pub fn clear(&mut self)
+    pub fn set_count(&mut self, count: u32)
     {
-        *self = UsersState::default();
-    }
-    pub fn set_count(&mut self, count: u8)
-    {
-        if self.count > 0 && self.count > count
-        {
-            let del_count = self.count - count;
-            for _ in 0.. del_count
-            {
-                self.users.pop();
-            }
-            self.count = count;
-            return;
-        }
-        if self.count == 0
-        {
-            self.count = count;
-            let count: usize = count.into(); 
-            self.users = Vec::with_capacity(count);
-            for _ in 0.. count
-            {
-                self.users.push(State::default());
-            }
-            return;
-        }
-        let add_count = count - self.count;
-        for _ in 0..add_count
-        {
-            self.users.push(State::default());
-        }
+        // if self.count > 0 && self.count > count
+        // {
+        //     let del_count = self.count - count;
+        //     for _ in 0.. del_count
+        //     {
+        //         self.users.pop();
+        //     }
+        //     self.count = count;
+        //     return;
+        // }
+        // if self.count == 0
+        // {
+        //     self.count = count;
+        //     let count: usize = count.into(); 
+        //     self.users = Vec::with_capacity(count);
+        //     for _ in 0.. count
+        //     {
+        //         self.users.push(State::default());
+        //     }
+        //     return;
+        // }
+        // let add_count = count - self.count;
+        // for _ in 0..add_count
+        // {
+        //     self.users.push(State::default());
+        // }
         self.count = count;
     }
-    pub fn get_count(&self) -> u8
+    pub fn get_count(&self) -> u32
     {
         self.count
     }
@@ -95,7 +87,7 @@ impl UsersState
             u.change_status(Status::Minus);
         }
     }
-    pub fn get_process(current_count: usize, overall_count: u8) -> String
+    pub fn get_process(current_count: usize, overall_count: u32) -> String
     {
         if current_count == 0
         {
@@ -116,10 +108,11 @@ pub enum Status
 #[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct User
 {
-    id: u64,
-    name: String,
-    nick: Option<String>,
-    updated: Date,
+    pub id: u64,
+    pub username: String,
+    pub nick: Option<String>,
+    pub updated: Date,
+    pub current_status: Status
 }
 impl PartialEq for User
 {
@@ -128,120 +121,138 @@ impl PartialEq for User
         &self.id == &other.id
     }
 }
-#[derive(Serialize, Deserialize, Clone, Debug)]
-pub struct State
-{
-    user: Option<User>,
-    status: Status
-}
-impl PartialEq for State
-{
-    fn eq(&self, other: &Self) -> bool 
-    {
-        if self.user.is_none() || other.user.is_none()
-        {
-            return false;
-        }
-        let u1 = self.user.as_ref().unwrap();
-        let u2 = other.user.as_ref().unwrap();
-        u1 == u2
-    }
-}
+// #[derive(Serialize, Deserialize, Clone, Debug)]
+// pub struct State
+// {
+//     user: User,
+//     status: Status
+// }
+// impl PartialEq for State
+// {
+//     fn eq(&self, other: &Self) -> bool 
+//     {
+//         if self.user.is_none() || other.user.is_none()
+//         {
+//             return false;
+//         }
+//         let u1 = self.user.as_ref().unwrap();
+//         let u2 = other.user.as_ref().unwrap();
+//         u1 == u2
+//     }
+// }
 
-impl Default for State
+// impl Default for State
+// {
+//     fn default() -> Self 
+//     {
+//         Self
+//         {
+//             user: None,
+//             status: Status::Minus
+//         }
+//     }
+// }
+impl User
 {
-    fn default() -> Self 
+    pub fn new(id: u64, username: String, nick: Option<String>, date: Date, current_status: Status) -> Self
     {
-        Self
+        let date = date.add_minutes(3 * 60);
+        Self 
         {
-            user: None,
-            status: Status::Minus
-        }
-    }
-}
-impl State
-{
-    pub fn new(user: Option<User>) -> Self
-    {
-        if let Some(user) = user
-        {
-            Self
-            {
-                user: Some(user),
-                status: Status::Plus
-            }
-        }
-        else 
-        {
-            Self::default()    
-
+            id,
+            username,
+            nick,
+            updated: date,
+            current_status
         }
     }
     pub fn change_status(&mut self, status: Status)
     {
-        self.status = status;
-        if let Some(u) = self.user.as_mut()
-        {
-            u.updated = Date::now();
-        }
+        self.current_status = status;
+        self.updated = Date::now();
     }
 }
+// impl State
+// {
+//     pub fn new(user: Option<User>) -> Self
+//     {
+//         if let Some(user) = user
+//         {
+//             Self
+//             {
+//                 user: Some(user),
+//                 status: Status::Plus
+//             }
+//         }
+//         else 
+//         {
+//             Self::default()    
+
+//         }
+//     }
+//     pub fn change_status(&mut self, status: Status)
+//     {
+//         self.status = status;
+//         if let Some(u) = self.user.as_mut()
+//         {
+//             u.updated = Date::now();
+//         }
+//     }
+// }
 impl ToString for UsersState
 {
     fn to_string(&self) -> String 
     {
         let mut output = String::new();
-        let plus_count = self.users.iter().filter(|f| f.status == Status::Plus).count();
+        let plus_count = self.users.iter().filter(|f| f.current_status == Status::Plus).count();
         output.push_str(&format!("*Статус {}/{}*\n", plus_count, self.count));
         output.push_str(&[Self::get_process(plus_count, self.count), "\n".to_owned()].concat());
         output.push_str(&["—".repeat(16), "\n".to_owned()].concat());
-        for s in &self.users
+        for u in &self.users
         {
-            if let Some(u) = s.user.as_ref()
+            let nick = match u.nick.as_ref()
             {
-                let nick = match u.nick.as_ref()
-                {
-                    Some(n) => format!("\\([{}](tg://user?id={})\\)",teloxide::utils::markdown::escape(&n), u.id),
-                    None => "".to_owned()
-                };
-                let check = match s.status
-                {
-                    Status::Minus => "❌",
-                    Status::Plus => "✅"
-                };
-                let date = u.updated.format(utilites::DateFormat::Serialize);
-                let date = date.split("T").collect::<Vec<_>>();
-                let line = format!("{} {} {}\n🕛 {} {}\n",check, teloxide::utils::markdown::escape(&u.name), nick, date[0].replace("-", "\\."), date[1]);
-                output.push_str(&line);
+                Some(n) => format!("\\([{}](tg://user?id={})\\)",teloxide::utils::markdown::escape(&n), u.id),
+                None => "".to_owned()
+            };
+            let check = match u.current_status
+            {
+                Status::Minus => "❌",
+                Status::Plus => "✅"
+            };
+            let date = u.updated.format(utilites::DateFormat::Serialize);
+            let date = date.split("T").collect::<Vec<_>>();
+            let line = format!("{} {} {}\n🕛 {} {}\n",check, teloxide::utils::markdown::escape(&u.username), nick, date[0].replace("-", "\\."), date[1]);
+            output.push_str(&line);
+            output.push_str(&["—".repeat(16), "\n".to_owned()].concat());
+        }
+        if self.count as usize > self.users.len()
+        {
+            for _ in 0..(self.count as usize - self.users.len())
+            {
+                output.push_str("❌ Неизвестный");
                 output.push_str(&["—".repeat(16), "\n".to_owned()].concat());
             }
-            else 
-            {
-                let line = "❌ Неизвестно\n";
-                output.push_str(line);
-                output.push_str(&["—".repeat(16), "\n".to_owned()].concat());
-            }
-           
         }
         output
     }
     
 }
 
-impl User
-{
-    pub fn new(id: u64, name: String, nick: Option<String>, date: Date) -> Self
-    {
-        let date = date.add_minutes(3 * 60);
-        Self 
-        {
-            id,
-            name,
-            nick,
-            updated: date
-        }
-    }
-}
+// impl User
+// {
+//     pub fn new(id: u64, name: String, nick: Option<String>, date: Date) -> Self
+//     {
+//         let date = date.add_minutes(3 * 60);
+//         Self 
+//         {
+//             id,
+//             name,
+//             nick,
+//             updated: date
+//         }
+//     }
+// }
 #[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct  UsersMap
 {

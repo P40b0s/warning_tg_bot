@@ -4,11 +4,14 @@ mod app_state;
 mod api_key;
 mod timer;
 mod keys;
+mod db;
+mod error;
+pub use error::Error;
 use std::sync::Arc;
 
 use app_state::AppState;
 use teloxide::{dispatching::dialogue::GetChatId, prelude::*, types::{ParseMode, Recipient}, utils::command::BotCommands};
-use users::{State, Status, UsersState};
+use users::{Status, UsersState};
 use utilites::Date;
 extern crate utilites;
 
@@ -19,7 +22,7 @@ async fn main()
     logger::info!("Starting command bot...");
 
     let bot = Bot::new(api_key::KEY);
-    let app_state = AppState::new();
+    let app_state = AppState::new().await;
     //let handler = tokio::runtime::Runtime::new().unwrap();
     let sleep_state = Arc::clone(&app_state);
     //tokio::task::spawn_blocking(move || handler.spawn(async {timer::reset_pluses(sleep_state, 60).await}));
@@ -78,8 +81,7 @@ async fn text_handler(bot: Bot, msg: Message, state: Arc<AppState>) -> ResponseR
                     {
                         let date = msg.date.clone().naive_local();
                         let d = Date::from(date);
-                        let user = users::User::new(user.id.0, user.first_name.clone(), user.username.clone(), d);
-                        let st = State::new(Some(user));
+                        let user = users::User::new(user.id.0, user.first_name.clone(), user.username.clone(), d, Status::Plus);
                         let mut guard = state.users_states.write().await;
                         let user_state = guard.get_mut(&chat_id);
                         if let Some(us) = user_state
