@@ -2,25 +2,22 @@ use std::{collections::HashMap, sync::Arc};
 
 use serde::{Deserialize, Serialize};
 
-use crate::{db::{new_connection, GroupRepository, IGroupRepository, IUserRepository, UserRepository}, keys::Keys, users::{UsersMap, UsersState}};
+use crate::{db::{new_connection, GroupRepository, IGroupRepository, IUserRepository, Repository, UserRepository}, keys::Keys, users::{Group}};
 
 
 pub struct AppState
 {
-    pub groups_repository: GroupRepository,
-    pub users_repository: UserRepository
+    pub repository: Repository,
 }
 
 impl AppState
 {
     pub async fn new() -> Arc<Self>
     {
-        let pool = Arc::new(new_connection("bot").await.unwrap());
         Arc::new(
             Self
             {
-                groups_repository: GroupRepository::new(Arc::clone(&pool)),
-                users_repository: UserRepository::new(pool)
+                repository: Repository::new().await,
             }
         )
     }

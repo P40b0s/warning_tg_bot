@@ -9,6 +9,8 @@ pub enum Error
     IoError(#[from] std::io::Error),
     #[error(transparent)]
     SqlxError(#[from] sqlx::Error),
+    #[error("Ошибка, введен неверный ключ регистрации `{0}`")]
+    WrongRegisterKeyError(String)
 }
 
 impl serde::Serialize for Error 

@@ -32,8 +32,8 @@ select * from groups
 
 insert into groups_users (chat_id, user_id) values (-312124123, 123456)
 
-SELECT u.name, u.id
-from users as u
-left JOIN groups_users as g on g.user_id = u.id
-left JOIN groups as gr
-where gr.chat_id = -312124123
+SELECT u.id,  u.username, u.nick,  u.updated, u.current_status,  gr.users_count
+FROM chat_id_user_id AS cu
+LEFT JOIN users AS u ON cu.user_id = u.id
+LEFT JOIN groups AS gr ON gr.chat_id = cu.chat_id
+WHERE  cu.chat_id = -312124123
