@@ -9,16 +9,14 @@ pub async fn reset_pluses(state: Arc<AppState>, delay: u64)
     loop 
     {
         let time = Date::now();
-        let settings = 
-      
         if Date::time_in_range(&time, (3, 30, 0), (3, 59, 59))
         {
             let _ = state.repository.users_repository.set_status_for_all(crate::users::Status::Minus).await;
         }
-        if Date::time_in_range(&time, (3, 30, 0), (3, 59, 59))
-        {
-            let _ = state.repository.users_repository.set_status_for_all(crate::users::Status::Minus).await;
-        }
+        // if Date::time_in_range(&time, (3, 30, 0), (3, 59, 59))
+        // {
+        //     let _ = state.repository.users_repository.set_status_for_all(crate::users::Status::Minus).await;
+        // }
         tokio::time::sleep(tokio::time::Duration::from_secs(delay)).await;
     }
 }

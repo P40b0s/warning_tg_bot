@@ -2624,7 +2624,7 @@ checksum = "b6c140620e7ffbb22c2dee59cafe6084a59b5ffc27a8859a5f0d494b5d52b6be"
 [[package]]
 name = "utilites"
 version = "0.1.0"
-source = "git+https://github.com/P40b0s/help_utilites.git#1a5c992528db2ddfb9f14df8cf3a8262e98f2ada"
+source = "git+https://github.com/P40b0s/help_utilites.git#c737c16c8449828c02793019bb04935833bcc017"
 dependencies = [
  "base64ct",
  "blake2",
@@ -2680,6 +2680,7 @@ version = "0.1.0"
 dependencies = [
  "logger",
  "once_cell",
+ "rand",
  "serde",
  "serde_json",
  "sqlx",

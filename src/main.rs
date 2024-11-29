@@ -11,7 +11,7 @@ pub use error::Error;
 use std::sync::Arc;
 
 use app_state::AppState;
-use teloxide::{dispatching::dialogue::GetChatId, prelude::*, types::{ParseMode, Recipient}, utils::command::BotCommands};
+use teloxide::{dispatching::dialogue::GetChatId, prelude::*, types::{BotCommand, MessageId, ParseMode, ReactionType, Recipient, True}, utils::command::{BotCommands, CommandDescription}, RequestError};
 use users::{Status, Group};
 use utilites::Date;
 extern crate utilites;
@@ -21,8 +21,8 @@ async fn main()
 {
     logger::StructLogger::new_default();
     logger::info!("Starting command bot...");
-
     let bot = Bot::new(api_key::KEY);
+    set_bot_commands(&bot).await;
     let app_state = AppState::new().await;
     let sleep_state = Arc::clone(&app_state);
     tokio::spawn(async {timer::reset_pluses(sleep_state, 60*30*1).await});
@@ -45,24 +45,58 @@ async fn main()
 
 #[derive(BotCommands, Clone, Debug)]
 #[command(rename_rule = "lowercase", description = "Поддерживаются команды:")]
-enum Command {
-    #[command(description = "*Показать это сообщение*")]
+enum Command 
+{
+    #[command(description = "Показать это сообщение")]
     Help,
-    #[command(description = "*Установить количество человек которое необходимо оплюсить*")]
+    #[command(description = "Установить количество человек которое необходимо оплюсить")]
     SetCount(u32),
-    #[command(description = "*Время до которого необходимо сообщись статус*")]
+    #[command(description = "Время до которого необходимо сообщить статус \n вводится в формате 12:00:00")]
     SetTime(String),
-    #[command(description = "*Сколько человек необходимо оплюсить?*")]
+    #[command(description = "Добавляет дополнительные даты в которые будет необходимо оставить свой отчет можно ввести несколько подряд, пример: 03\\.11\\.2024 04\\.11\\.2024 05\\.11\\.2024")]
+    AddDates(String),
+    #[command(description = "Сколько человек необходимо оплюсить?")]
     GetCount,
-    #[command(description = "*Показать текущий статус*")]
+    #[command(description = "Показать текущий статус")]
     Status,
-    #[command(description = "*Настройки оповещения*")]
+    #[command(description = "Настройки оповещения")]
     Settings,
-    #[command(description = "*Чтобы начать пользоваться ботом, необходимо выполнить эту команду с выданым ключом*")]
+    #[command(description = "Чтобы начать пользоваться ботом, необходимо выполнить эту команду с выданым ключом")]
     Reg(String),
-    #[command(description = "*Посмотреть какие вводные принимает бот кроме команд*")]
-    Text,
+    #[command(description = "Установить свой текущий статус `готов`")]
+    Ready,
+    #[command(description = "Установить свой текущий статус `не готов` ")]
+    UnReady,
+    #[command(description = "Удалить себя из списка отслеживаемых в этой группе")]
+    Exit,
+    #[command(description = "Заболевание одним словом диакгноз и через пробел дату выхода: ` ОРВИ 12.10.2024`")]
+    Disease(String),
+    #[command(description = "Отпуск через пробел 2 даты, начало и окончание отпуска: ` 12.10.2024 12.12.2024`")]
+    Vacation(String)
 }
+
+async fn set_bot_commands(bot: &Bot)
+{
+    // match Command
+    // {
+    //     Command::Text => 
+    //     {
+    //         Command::bot_commands()
+    //     }
+    // }
+
+    let _ = bot.set_my_commands(Command::bot_commands()).await;
+    //bot.set_my_commands(vec![BotCommand { command: "help".to_string(), description: "Помощь".to_string()}]).await;
+}
+// help - Показать это сообщение
+// setcount - Установить количество человек которое необходимо оплюсить
+// settime - Время до которого необходимо сообщись статус  вводится в формате 12:00:00
+// adddates - Добавляет дополнительные даты в которые будет необходимо оставить свой отчет можно ввести несколько подряд, пример: 03.11.2024 04.11.2024 05.11.2024
+// getcount - Сколько человек необходимо оплюсить?
+// status - Показать текущий статус
+// settings - Настройки оповещения
+// reg - Чтобы начать пользоваться ботом, необходимо выполнить эту команду с выданым ключом
+// text - Посмотреть какие вводные принимает бот кроме команд
 async fn text_handler(bot: Bot, msg: Message, state: Arc<AppState>) -> ResponseResult<()> 
 {
     let bot = Arc::new(bot);
@@ -80,62 +114,66 @@ async fn text_handler(bot: Bot, msg: Message, state: Arc<AppState>) -> ResponseR
             let date = date.add_minutes(3*60);
             match text
             {
-                "+" => 
-                {
-                    if let Some(user) = msg.from.as_ref()
-                    {
+                // "+" => 
+                // {
+                //     if let Some(user) = msg.from.as_ref()
+                //     {
                       
-                        logger::debug!("message time:{:?} user: {:?}", &date, user);
-                        //let photos = bot.get_user_profile_photos(user.id).await.unwrap();
-                        //let p = photos.photos.first().unwrap();
-                        //let photo = bot.get_file(p.first().as_ref().unwrap().file.id.clone()).await.unwrap();
-                        //logger::debug!("{:?}", photo);
-                        //let fl = bot.get_file(photo.id).await.unwrap();
-                        if let Some(sig) =  msg.author_signature()
-                        {
-                            logger::debug!("signature:{:?}", sig);
-                        }
-                        let user = users::User::new(user.id.0, user.first_name.clone(), user.username.clone(), date, Status::Plus);
-                        if let Ok(usr) = state.repository.add_user(&user, msg.chat.id.0).await
-                        {
-                            logger::debug!("state:{:?}", &usr);
-                            bot.parse_mode(ParseMode::MarkdownV2).send_message(msg.chat.id, usr.to_string())
-                            .await?;
-                        }
-                    };
-                    ()
-                },
-                "-" => 
-                {
-                    if let Some(user) = msg.from.as_ref()
-                    {
-                        let user = users::User::new(user.id.0, user.first_name.clone(), user.username.clone(), date, Status::Minus);
-                        if let Ok(usr) = state.repository.add_user(&user, msg.chat.id.0).await
-                        {
-                            logger::debug!("state:{:?}", &usr);
-                            bot.parse_mode(ParseMode::MarkdownV2).send_message(msg.chat.id, usr.to_string())
-                            .await?;
-                        }
-                    };
-                    ()
-                },
-                "--" => 
-                {
-                    if let Some(user) = msg.from.as_ref()
-                    {
-                        //let user = users::User::new(user.id.0, user.first_name.clone(), user.username.clone(), date, Status::Minus);
-                        if let Ok(_) = state.repository.groups_repository.remove_user_from_chat(msg.chat.id.0, user.id.0).await
-                        {
-                            let users_state = state.repository.groups_repository.get_group(msg.chat.id.0).await;
-                            if let Ok(st) = users_state
-                            {
-                                let _sended = bot.parse_mode(ParseMode::MarkdownV2).send_message(msg.chat.id, st.to_string())
-                                .await?;
-                            }
-                        }
-                    };
-                    ()
-                },
+                //         logger::debug!("message time:{:?} user: {:?}", &date, user);
+                //         //let photos = bot.get_user_profile_photos(user.id).await.unwrap();
+                //         //let p = photos.photos.first().unwrap();
+                //         //let photo = bot.get_file(p.first().as_ref().unwrap().file.id.clone()).await.unwrap();
+                //         //logger::debug!("{:?}", photo);
+                //         //let fl = bot.get_file(photo.id).await.unwrap();
+                //         if let Some(sig) =  msg.author_signature()
+                //         {
+                //             logger::debug!("signature:{:?}", sig);
+                //         }
+                //         let user = users::User::new(user.id.0, user.first_name.clone(), user.username.clone(), date, Status::Plus);
+                //         if let Ok(usr) = state.repository.add_user(&user, msg.chat.id.0).await
+                //         {
+                //             logger::debug!("state:{:?}", &usr);
+                //             bot.parse_mode(ParseMode::MarkdownV2).send_message(msg.chat.id, usr.to_string())
+                //             .await?;
+                //         }
+                //     };
+                //     ()
+                // },
+                // "-" => 
+                // {
+                //     if let Some(user) = msg.from.as_ref()
+                //     {
+                //         let user = users::User::new(user.id.0, user.first_name.clone(), user.username.clone(), date, Status::Minus);
+                //         if let Ok(usr) = state.repository.add_user(&user, msg.chat.id.0).await
+                //         {
+                //             logger::debug!("state:{:?}", &usr);
+                //             // bot.set_chat_menu_button()
+                //             // .chat_id(msg.chat.id)
+                //             // .menu_button(teloxide::types::MenuButton::Commands)
+                //             // .await?;
+                //             bot.parse_mode(ParseMode::MarkdownV2).send_message(msg.chat.id, usr.to_string())
+                //             .await?;
+                //         }
+                //     };
+                //     ()
+                // },
+                // "--" => 
+                // {
+                //     if let Some(user) = msg.from.as_ref()
+                //     {
+                //         //let user = users::User::new(user.id.0, user.first_name.clone(), user.username.clone(), date, Status::Minus);
+                //         if let Ok(_) = state.repository.groups_repository.remove_user_from_chat(msg.chat.id.0, user.id.0).await
+                //         {
+                //             let users_state = state.repository.groups_repository.get_group(msg.chat.id.0).await;
+                //             if let Ok(st) = users_state
+                //             {
+                //                 let _sended = bot.parse_mode(ParseMode::MarkdownV2).send_message(msg.chat.id, st.to_string())
+                //                 .await?;
+                //             }
+                //         }
+                //     };
+                //     ()
+                // },
                 "!" => 
                 {
                     if let Some(user) = msg.from.as_ref()
@@ -163,6 +201,10 @@ async fn cmd_handler(bot: Bot, msg: Message, cmd: Command, state: Arc<AppState>)
     let id = msg.chat_id();
     let chat_id = id.as_ref().map_or(0, |ident| ident.0);
     let bot = Arc::new(bot);
+    let date = msg.date.clone().naive_local();
+    let date  = Date::from(date);
+    //change utc timezone to +3 timezone
+    let date = date.add_minutes(3*60);
     match cmd 
     {
         Command::Help => 
@@ -195,7 +237,6 @@ async fn cmd_handler(bot: Bot, msg: Message, cmd: Command, state: Arc<AppState>)
                 let _sended = bot.parse_mode(ParseMode::MarkdownV2).send_message(msg.chat.id, format!("Количество отслеживаемых человек установлено на: {}", count))
                 .await?;
             }
-           
         ()
         },
         Command::SetTime(time) => 
@@ -206,8 +247,9 @@ async fn cmd_handler(bot: Bot, msg: Message, cmd: Command, state: Arc<AppState>)
             }
             if let Some(t) = Date::parse(time)
             {
-                
-                let _sended = bot.parse_mode(ParseMode::MarkdownV2).send_message(msg.chat.id, format!("Количество отслеживаемых человек установлено на: {}", count))
+                let time = t.format(utilites::DateFormat::Time);
+                let _ = state.repository.groups_repository.set_deadline_time(chat_id, t).await;
+                let _sended = bot.parse_mode(ParseMode::MarkdownV2).send_message(msg.chat.id, format!("Время установлено на: {}", time))
                 .await?;
             }
             else
@@ -218,7 +260,24 @@ async fn cmd_handler(bot: Bot, msg: Message, cmd: Command, state: Arc<AppState>)
             }
            
         ()
-        }
+        },
+        Command::AddDates(dates) => 
+        {
+            if !is_authorized(Arc::clone(&bot),msg.chat.id, Arc::clone(&state)).await
+            {
+                return Ok(());
+            }
+            let splitted: Vec<Date> = dates.split(" ").filter_map(|d| Date::parse(d)).collect();
+            logger::info!("Утановлены даты: {:?}", &splitted);
+            let _ = state.repository.groups_repository.set_additional_dates(chat_id, splitted).await;
+            let settings = state.repository.groups_repository.get_group_settings(chat_id).await;
+            if let Ok(st) = settings
+            {
+                let _sended = bot.parse_mode(ParseMode::MarkdownV2).send_message(msg.chat.id, st.to_string())
+                .await?;
+            }
+        ()
+        },
         Command::Status => 
         {
             if !is_authorized(Arc::clone(&bot),msg.chat.id, Arc::clone(&state)).await
@@ -263,22 +322,114 @@ async fn cmd_handler(bot: Bot, msg: Message, cmd: Command, state: Arc<AppState>)
             }
         ()
         },
-        Command::Text => 
+        Command::Ready =>
         {
+            if !is_authorized(Arc::clone(&bot),msg.chat.id, Arc::clone(&state)).await
+            {
+                return Ok(());
+            }
+            if let Some(user) = msg.from.as_ref()
+            {
+                let user = users::User::new(user.id.0, user.first_name.clone(), user.username.clone(), date, Status::Plus);
+                if let Ok(_) = state.repository.add_user(&user, msg.chat.id.0).await
+                {
+                    send_reaction(Arc::clone(&bot), "👍", id.as_ref().cloned().unwrap(), msg.id).await?;
+                }
+            };
+        },
+        Command::UnReady =>
+        {
+            if !is_authorized(Arc::clone(&bot),msg.chat.id, Arc::clone(&state)).await
+            {
+                return Ok(());
+            }
+            if let Some(user) = msg.from.as_ref()
+            {
+                let user = users::User::new(user.id.0, user.first_name.clone(), user.username.clone(), date, Status::Minus);
+                if let Ok(_) = state.repository.add_user(&user, msg.chat.id.0).await
+                {
+                    let _ = send_reaction(Arc::clone(&bot), "😢", id.as_ref().cloned().unwrap(), msg.id).await?;
+                }
+            };
+        },
+        Command::Exit =>
+        {
+            if !is_authorized(Arc::clone(&bot),msg.chat.id, Arc::clone(&state)).await
+            {
+                return Ok(());
+            }
+            if let Some(user) = msg.from.as_ref()
+            {
+                if let Ok(_) = state.repository.groups_repository.remove_user_from_chat(msg.chat.id.0, user.id.0).await
+                {
+                    send_reaction(Arc::clone(&bot), "🤔", id.as_ref().cloned().unwrap(), msg.id).await?;
+                }
+            };
+        },
+        Command::Disease(dis) =>
+        {
+            if !is_authorized(Arc::clone(&bot),msg.chat.id, Arc::clone(&state)).await
+            {
+                return Ok(());
+            }
            
-            let mut lines = String::new();
-
-            lines.push_str([&teloxide::utils::markdown::escape("+ "), "*Добавляет человека к списку отслеживаемых или обновляет его статус на ✅*\n"].concat().as_str());
-            lines.push_str([&teloxide::utils::markdown::escape("- "), "*Меняет статус человека в списке отслеживаемых на ❌*\n"].concat().as_str());
-            lines.push_str([&teloxide::utils::markdown::escape("-- "), "*Удаляет человека из списка отслеживаемых в данной группе*\n"].concat().as_str());
-            lines.push_str("*Каждые сутки в 3 часа ночи происхлдит общий сброс статусов, поэтому если необходимо отметиться нужно обновить свой статус способом указанным выше*\n");
-            let _sended = bot.parse_mode(ParseMode::MarkdownV2).send_message(msg.chat.id, lines)
-            .await?;
-            ()
-        }
-
+            if let Some(user) = msg.from.as_ref()
+            {
+                let splitted: Vec<&str> = dis.split(' ').collect();
+                if splitted.len() != 2
+                {
+                    bot.parse_mode(ParseMode::MarkdownV2).send_message(msg.chat.id, format!("Неправильно переданы параметры команды: {}", &dis))
+                    .await?;
+                }
+                else 
+                {
+                    let dis_date = Date::parse(splitted[1]);
+                    if let Some(dd) = dis_date  
+                    {
+                        let dis_status = Status::Disease(splitted[0].to_owned(), dd);
+                        let user = users::User::new(user.id.0, user.first_name.clone(), user.username.clone(), date, dis_status);
+                        if let Ok(_) = state.repository.add_user(&user, msg.chat.id.0).await
+                        {
+                            send_reaction(Arc::clone(&bot), "💊", id.as_ref().cloned().unwrap(), msg.id).await;
+                        }
+                    }
+                    else 
+                    {
+                        bot.parse_mode(ParseMode::MarkdownV2).send_message(msg.chat.id, format!("Неправильно переданы параметры команды: {}", &dis))
+                        .await?;
+                    }
+                }
+            };
+        },
+        Command::Vacation(vac) =>
+        {
+            if !is_authorized(Arc::clone(&bot),msg.chat.id, Arc::clone(&state)).await
+            {
+                return Ok(());
+            }
+           
+            if let Some(user) = msg.from.as_ref()
+            {
+                let mut splitted: Vec<Date> = vac.split(' ').filter_map(|d| Date::parse(d)).collect();
+                if splitted.len() != 2
+                {
+                    bot.parse_mode(ParseMode::MarkdownV2).send_message(msg.chat.id, format!("Неправильно переданы параметры команды: {}", &vac))
+                    .await?;
+                }
+                else 
+                {
+                    let date_1 = splitted.swap_remove(0);
+                    let date_2 = splitted.swap_remove(0);
+                    let status = Status::Vacation(date_1, date_2);
+                    let user = users::User::new(user.id.0, user.first_name.clone(), user.username.clone(), date, status);
+                    if let Ok(_) = state.repository.add_user(&user, msg.chat.id.0).await
+                    {
+                        send_reaction(Arc::clone(&bot), "🎉", id.as_ref().cloned().unwrap(), msg.id).await;
+                    }
+                }
+            };
+        },
     };
-
     Ok(())
 }
 
@@ -316,4 +467,16 @@ async fn is_authorized<C: Into<Recipient>>(bot: Arc<Bot>, chat_id: C, state: Arc
         logger::error!("{}", reg.err().unwrap());
         return false;
     }
+}
+
+/// Send reaction to message "👀"
+async fn send_reaction<C: Into<Recipient>>(bot: Arc<Bot>, reaction: &str, chat_id: C, message_id: MessageId) -> Result<True, RequestError>
+{
+    let eyes = ReactionType::Emoji 
+    {
+        emoji: reaction.to_owned(),
+    };
+    let mut reaction = bot.set_message_reaction(chat_id, message_id);
+    reaction.reaction = Some(vec![eyes]);
+    reaction.send().await
 }

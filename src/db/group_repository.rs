@@ -313,9 +313,12 @@ pub trait IGroupRepository : ConnectionPool
     async fn set_additional_dates(&self, chat_id: i64, dates: Vec<Date>) -> Result<(), crate::error::Error>
     {
         let pool = self.get_pool();
+        let mut exists_dates = self.get_additional_dates(chat_id).await?;
+        Date::union(&mut exists_dates, dates, utilites::DateFormat::DotDate);
+        exists_dates.sort();
         let sql = "UPDATE groups SET additional_dates = $1 WHERE chat_id = $2";
         let r = sqlx::query(&sql)
-        .bind(serde_json::to_string(&dates))
+        .bind(serde_json::to_string(&exists_dates).unwrap())
         .bind(chat_id)
         .execute(&*pool).await;
         if r.is_err()
