@@ -14,6 +14,14 @@ CREATE TABLE IF NOT EXISTS groups (
   is_active INTEGER DEFAULT 0
 );
 
+CREATE TABLE IF NOT EXISTS custom_groups (
+  creater_id TEXT NOT NULL PRIMARY KEY,
+  user_id INTEGER NOT NULL,
+  users_count INTEGER DEFAULT 0,
+  group_name TEXT,
+  is_active INTEGER DEFAULT 0
+);
+
 CREATE TABLE IF NOT EXISTS groups_users (
   chat_id INTEGER NOT NULL,
   user_id INTEGER NOT NULL,
