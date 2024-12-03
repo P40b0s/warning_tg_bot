@@ -3,23 +3,20 @@ CREATE TABLE IF NOT EXISTS users (
   username TEXT NOT NULL,
   nick TEXT,
   updated TEXT NOT NULL,
-  current_status TEXT NOT NULL
+  current_status TEXT NOT NULL,
+  remind_me INTEGER DEFAULT 1
 );
 
 CREATE TABLE IF NOT EXISTS groups (
-  id TEXT NOT NULL PRIMARY KEY,
-  chat_id INTEGER NOT NULL,
+  creater_id TEXT NOT NULL PRIMARY KEY,
   users_count INTEGER DEFAULT 0,
   group_name TEXT,
-  is_active INTEGER DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS custom_groups (
-  creater_id TEXT NOT NULL PRIMARY KEY,
+  creater_id TEXT NOT NULL,
   user_id INTEGER NOT NULL,
-  users_count INTEGER DEFAULT 0,
-  group_name TEXT,
-  is_active INTEGER DEFAULT 0
+  PRIMARY KEY(creater_id, user_id)
 );
 
 CREATE TABLE IF NOT EXISTS groups_users (

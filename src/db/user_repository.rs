@@ -1,4 +1,5 @@
 use std::sync::Arc;
+use futures::future::BoxFuture;
 use sqlx::{sqlite::SqliteRow, FromRow, Row, SqlitePool};
 use utilites::Date;
 use crate::users::{Status, User};
@@ -19,11 +20,9 @@ fn create_table<'a>() -> &'a str
 }
 
 
-
-
 pub trait IUserRepository : ConnectionPool
 {
-    async fn create(&self) -> Result<(), crate::error::Error>
+    async fn create(&self) -> BoxFuture<'a, Result<(), crate::error::Error>>
     {
         let pool = self.get_pool();
         let r = sqlx::query(create_table()).execute(&*pool).await;
@@ -35,7 +34,7 @@ pub trait IUserRepository : ConnectionPool
         Ok(())
     }
     /// add or on conflict id update all user data
-    async fn add(&self, user: &User) -> Result<(), crate::error::Error>
+    async fn add(&self, user: &User) -> BoxFuture<'a, Result<(), crate::error::Error>>
     {
         let pool = self.get_pool();
         let query = format!("INSERT INTO users (id, username, nick, updated, current_status) VALUES ({}, $1, $2, $3, $4) 
@@ -53,7 +52,7 @@ pub trait IUserRepository : ConnectionPool
         };
         Ok(())
     }
-    async fn set_status_for_all(&self, status: Status) -> Result<(), crate::error::Error>
+    async fn set_status_for_all(&self, status: Status) -> BoxFuture<'a, Result<(), crate::error::Error>>
     {
         let pool = self.get_pool();
         let query = "UPDATE users SET current_status = $1";
@@ -67,7 +66,7 @@ pub trait IUserRepository : ConnectionPool
         };
         Ok(())
     }
-    async fn change_status(&self, user_id: u64, status: Status) -> Result<(), crate::error::Error>
+    async fn change_status(&self, user_id: u64, status: Status) -> BoxFuture<'a, Result<(), crate::error::Error>>
     {
         let pool = self.get_pool();
         let query = format!("UPDATE users SET current_status = $1 WHERE id = {}", user_id);

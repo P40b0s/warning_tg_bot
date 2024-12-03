@@ -18,9 +18,12 @@ pub trait ConnectionPool
 
 pub struct Repository
 {
-    pub users_repository : UserRepository,
-    pub groups_repository: GroupRepository
+    
+    pub users_repository : Box<dyn IUserRepository>,
+    pub groups_repository: Box<dyn IGroupRepository>
 }
+
+
 impl Repository
 {
     pub async fn new() -> Self
@@ -28,8 +31,8 @@ impl Repository
         let pool = Arc::new(new_connection("bot").await.unwrap());
         Self
         {
-            groups_repository: GroupRepository::new(Arc::clone(&pool)).await,
-            users_repository: UserRepository::new(pool).await
+            groups_repository,
+            users_repository
         }
     }
     pub async fn add_user(&self, user: &User, chat_id: i64) -> Result<Group, crate::error::Error>

@@ -14,10 +14,14 @@ impl AppState
 {
     pub async fn new() -> Arc<Self>
     {
+        let pool = Arc::new(new_connection("bot").await.unwrap());
         Arc::new(
             Self
             {
-                repository: Repository::new().await,
+                repository: Repository::new(
+                    GroupRepository::new(Arc::clone(&pool)).await,
+                    UserRepository::new(pool).await
+                ).await
             }
         )
     }

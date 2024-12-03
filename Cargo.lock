@@ -2678,6 +2678,7 @@ dependencies = [
 name = "warning_tg_bot"
 version = "0.1.0"
 dependencies = [
+ "futures",
  "logger",
  "once_cell",
  "rand",
